@@ -1,13 +1,231 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>MP1</title>
-    </head>
-    <body>
-        <h1>Hello World! Welcome to MP1!</h1>
-        <img src="assets/image.jpg">
-    </body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Ming's Portfolio</title>
+
+    <!-- Webpack loads main.scss and main.js through src/index.js. -->
+  </head>
+
+  <body>
+    <!-- Navigation -->
+    <header id="navbar">
+      <nav aria-label="Main navigation">
+        <div class="nav-content">
+          <div class="logo"> Ming Yi</div>
+
+          <div class="nav-links">
+            <a href="#home" class="nav-link active">Home</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#skills" class="nav-link">Skills</a>
+            <a href="#video" class="nav-link">Video</a>
+            <a href="#contact" class="nav-link">Contact</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Home -->
+      <section id="home" class="section hero">
+        <div class="hero-content">
+          <h1>Hi, I'm Ming Yi</h1>
+          <p>MCS Student at UIUC</p>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section id="about" class="section about">
+        <div class="section-content">
+          <h2>About Me</h2>
+
+          <div class="about-content">
+            <img
+              src="assets/profile_pic.jpeg"
+              alt="Starter image placeholder — replace with your profile photo"
+            />
+
+            <div>
+              <p>
+                I'm a MCS student at the University of Illinois
+                Urbana-Champaign interested in software engineering, artificial
+                intelligence, and web development.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section id="projects" class="section projects">
+        <div class="section-content">
+          <h2>Projects</h2>
+
+          <div class="carousel" role="region" aria-label="Projects carousel">
+            <button
+              id="prevButton"
+              class="carousel-button"
+              type="button"
+              aria-label="Previous project"
+            >
+              &#10094;
+            </button>
+
+            <div class="slides" aria-live="polite">
+              <div class="slide active-slide">
+                <img
+                  src="assets/Project1.png"
+                  alt="Placeholder image for project 1"
+                />
+
+                <h3>Project One</h3>
+
+                <p>For this project, a research was done to detect how much of an impact can posts on r/MSCS,r/gradaddmission, and r/MBA affect
+                  others' emtions as well. For this research, my teammates and I have downloaded datasets from reddit, and then ran several steps to detect words
+                  that are negative, and place them in corresponding category. Later calculated the percentage of people that were affected. 
+                </p>
+              </div>
+
+              <div class="slide" hidden>
+                <img
+                  src="assets/Project2.png"
+                  alt="Placeholder image for project 2"
+                />
+
+                <h3>Project Two</h3>
+
+                <p>A simple image overlapping was done by assigning the high pass and low pass image, with their corresponding data points.
+                   As well as measuring the alignment points for both cars that were used, which was BMW M4 Competition, and Mercedes C63 Coupe. 
+                   From near you can see more of the details of C63, and from far away you see more of the shape of M4 Comp.</p>
+              </div>
+
+              <div class="slide" hidden>
+                <img
+                  src="assets/Project3.png"
+                  alt="Placeholder image for project 3"
+                />
+
+                <h3>Project Three</h3>
+
+                <p>This project entails hardware and software, in which we have built a automatic food dispenser and shelter for cats. It's fully powered
+                  by solar panel, which charges the battery inside the shelter, and there are sensors that see if theres and cat entering the shelter, and it detects using YOLOv* model.
+                  After a cat is detected, the food dispenser would first check if there is any food left inside the bowl, if not, it'll start dispensing food and heater will aslo start functioning.
+                  All code were embedded into a ESP32, and sensor corresponding is also through that as well. Power control is through PCB.
+                </p>
+              </div>
+            </div>
+
+            <button
+              id="nextButton"
+              class="carousel-button"
+              type="button"
+              aria-label="Next project"
+            >
+              &#10095;
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills -->
+      <section id="skills" class="section skills">
+        <div class="section-content">
+          <h2>Skills & Interests</h2>
+
+          <div class="skill-grid">
+            <div class="skill-card">
+              <h3>Software Engineering</h3>
+              <p>Java, Python, C++, Git, Android Development</p>
+            </div>
+
+            <div class="skill-card">
+              <h3>Artificial Intelligence</h3>
+              <p>Machine Learning, NLP, LLMs</p>
+            </div>
+
+            <div class="skill-card">
+              <h3>Web Development</h3>
+              <p>HTML, CSS, SCSS, JavaScript, REACT</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Video -->
+      <section id="video" class="section video-section">
+        <div class="section-content">
+          <h2>Video</h2>
+          <video controls preload="metadata" aria-label="Portfolio video">
+            <source src="assets/video1.mp4" type="video/mp4">
+
+            Your browser does not support video.
+          </video>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="section contact">
+        <div class="section-content">
+          <h2>Contact Me</h2>
+
+          <p>Want to learn more about me?</p>
+
+          <button id="openModal" type="button">Contact Information</button>
+        </div>
+      </section>
+    </main>
+
+    <!-- Native dialog provides focus trapping and Escape-key dismissal. -->
+    <dialog id="contactModal" class="modal" aria-labelledby="contactTitle">
+      <div class="modal-content">
+        <button
+          id="closeModal"
+          class="close-button"
+          type="button"
+          aria-label="Close contact information"
+        >
+          &times;
+        </button>
+
+        <h2 id="contactTitle">Contact</h2>
+
+        <p>Email: myi22@illinois.edu</p>
+
+        <p>LinkedIn:
+          <a href="https://www.linkedin.com/in/mingyi1/" target="_blank">
+            https://www.linkedin.com/in/mingyi1/</a>
+        </p>
+
+        <p>GitHub: 
+          <a href= "https://github.com/89310637ming" target="_blank">
+            https://github.com/89310637ming </a>       
+        </p>
+      </div>
+    </dialog>
+
+    <!-- Footer -->
+    <footer>
+      <div class="social-links">
+        <a href="https://github.com/89310637ming">
+          <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2.14c-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.23-1.28-5.23-5.69 0-1.26.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.16 1.18a11.04 11.04 0 0 1 5.75 0c2.2-1.49 3.16-1.18 3.16-1.18.62 1.58.23 2.75.11 3.04.73.8 1.18 1.82 1.18 3.08 0 4.42-2.68 5.4-5.24 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.79.56A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z" />
+          </svg>
+          <span>GitHub</span>
+        </a>
+
+        <a href="https://www.linkedin.com/in/mingyi1/">
+          <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <circle cx="4" cy="4" r="2" />
+            <path d="M2 8h4v14H2zM9 8h4v2c.8-1.5 2.1-2.3 4-2.3 3.6 0 5 2.3 5 6V22h-4v-7.5c0-2-.5-3.2-2.3-3.2-1.9 0-2.7 1.3-2.7 3.2V22H9z" />
+          </svg>
+          <span>LinkedIn</span>
+        </a>
+      </div>
+
+      <p>© 2026  Ming Yi</p>
+    </footer>
+  </body>
 </html>
